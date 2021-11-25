@@ -17,7 +17,6 @@ const Home: NextPage = () => {
     getUserData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(userData);
   return (
     <div className="bg-blue-zodiac-600 min-h-screen grid place-items-center">
       <header className="absolute top-5 right-5">

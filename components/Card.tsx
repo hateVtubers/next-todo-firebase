@@ -4,7 +4,7 @@ import type { UserData } from "../interfaces/UserData";
 // @ts-ignore
 export const Card = ({ user }: { user: UserData } | { user: null }) => {
   return (
-    <div className="flex gap-2 pr-3 bg-blue-zodiac-500 text-bright-turquoise-500 rounded">
+    <div className="flex gap-2 pr-3 bg-blue-zodiac-500 text-bright-turquoise-500 rounded w-56">
       {user ? (
         <Image
           src={user.photoURL as string}
@@ -15,7 +15,7 @@ export const Card = ({ user }: { user: UserData } | { user: null }) => {
           className="rounded-l"
         />
       ) : (
-        <div className="h-16" style={{ width: "68px" }}></div>
+        <div className="h-16 bg-bright-turquoise-500" style={{ width: "68px" }}></div>
       )}
       <div className="grid grid-rows-2 place-items-center py-3 pr-1">
         {user ? (
@@ -24,7 +24,10 @@ export const Card = ({ user }: { user: UserData } | { user: null }) => {
             <span className="text-xs">Logged with {user.providerId}</span>
           </>
         ) : (
-          <div></div>
+          <>
+            <div className="h-3 w-16 bg-bright-turquoise-500 rounded-full"></div>
+            <div className="h-3 w-36 bg-bright-turquoise-500 rounded-full"></div>
+          </>
         )}
       </div>
     </div>

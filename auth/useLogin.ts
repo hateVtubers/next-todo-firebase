@@ -11,17 +11,17 @@ export const useLogin = () => {
   const singIn: Function = (provider: AuthProvider): void => {
     signInWithPopup(auth, provider)
       .then((r) => {
-        window.sessionStorage.setItem("login", "true");
+        window.localStorage.setItem("login", "true");
         setIsLogin(true);
       })
       .catch((e) => {
-        window.sessionStorage.setItem("login", "false");
+        window.localStorage.setItem("login", "false");
         setIsLogin(false);
       });
   };
 
   const redirect: Function = (): void => {
-    isLogin || JSON.parse(window.sessionStorage.getItem("login") as string)
+    isLogin || JSON.parse(window.localStorage.getItem("login") as string)
       ? router.push("/")
       : router.push("/login");
   };
