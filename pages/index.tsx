@@ -1,17 +1,18 @@
 import type { NextPage } from "next";
-import { useEffect } from "react";
+import type { ContextTask } from "../interfaces/ContextTask";
+import { useContext, useEffect } from "react";
 import { useLogin } from "../auth/useLogin";
 import { Form } from "../components/Form";
-import { Th } from "../components/Th";
 import { Card } from "../components/Card";
+import { TaskItems } from "../components/TaskItems";
+import { TaskContext } from "../context/taskContext";
+import { Loading } from "../components/Loading";
 
 const Home: NextPage = () => {
   const { redirect, getUserData, userData } = useLogin();
-  const tableTitles: { title: string; date: string } = {
-    title:
-      "w-72 bg-bright-turquoise-500 text-blue-zodiac-500 text-sm uppercase border-r border-blue-zodiac-500",
-    date: "w-20 text-center bg-bright-turquoise-500 text-blue-zodiac-500 text-sm uppercase border-l border-blue-zodiac-500",
-  };
+  const {
+    state: { tasks },
+  } = useContext(TaskContext) as ContextTask;
   useEffect(() => {
     redirect();
     getUserData();
@@ -22,7 +23,7 @@ const Home: NextPage = () => {
       <header className="absolute top-5 right-5">
         <Card user={userData} />
       </header>
-      <div className="container grid grid-cols-2 place-items-center grid-flow-col">
+      <div className="container flex items-center justify-center gap-5">
         <aside className="bg-blue-zodiac-400 p-3 w-64 rounded-sm">
           <Form />
         </aside>
@@ -30,23 +31,13 @@ const Home: NextPage = () => {
           <h1 className="text-bright-turquoise-500 text-xl text-center">
             Tasks
           </h1>
-          <table className="overflow-hidden rounded-sm">
-            <thead>
-              <tr>
-                {Object.entries(tableTitles).map(([title, className]) => (
-                  <Th className={className} key={title}>
-                    {title}
-                  </Th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>a</td>
-                <td>w</td>
-              </tr>
-            </tbody>
-          </table>
+          <div className="overflow-hidden grid gap-1.5">
+            {tasks.length ? (
+              tasks.map((task) => <TaskItems taskText={task} taskId={task} key={task.id} />)
+            ) : (
+              <Loading />
+            )}
+          </div>
         </main>
       </div>
     </div>

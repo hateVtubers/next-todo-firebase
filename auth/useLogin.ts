@@ -1,8 +1,8 @@
+import type { User, UserData } from "../interfaces/UserData";
 import { signInWithPopup, AuthProvider, onAuthStateChanged } from "firebase/auth";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { auth } from "../firebase.config";
-import type { User, UserData } from "../interfaces/UserData";
 
 export const useLogin = () => {
   const [isLogin, setIsLogin] = useState(false) as [boolean, Function];

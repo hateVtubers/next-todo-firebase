@@ -1,5 +1,5 @@
-import Image from "next/image";
 import type { UserData } from "../interfaces/UserData";
+import Image from "next/image";
 
 // @ts-ignore
 export const Card = ({ user }: { user: UserData } | { user: null }) => {
