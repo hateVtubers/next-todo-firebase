@@ -42,22 +42,22 @@ export const Form = () => {
         className="flex items-center flex-col gap-3"
         onSubmit={handleSubmit}
       >
-        <h2 className="uppercase text-bright-turquoise-500 text-lg">
+        <h2 className="uppercase dark:text-bright-turquoise-500 text-blue-zodiac-500 text-lg transition-colors">
           add task
         </h2>
         <input
-          className="outline-none rounded bg-bright-turquoise-500 w-11/12 px-2 py-1 text-sm text-blue-zodiac-400 placeholder-blue-zodiac-400"
+          className="outline-none rounded dark:bg-bright-turquoise-500 bg-blue-zodiac-500 w-11/12 px-2 py-1 text-sm dark:text-blue-zodiac-400 text-bright-turquoise-400 dark:placeholder-blue-zodiac-400 placeholder-bright-turquoise-400 transition-colors"
           placeholder="Task title"
           required
         />
         <textarea
           cols={30}
           rows={5}
-          className="outline-none rounded bg-bright-turquoise-500 w-11/12 px-2 py-1 text-sm text-blue-zodiac-400 placeholder-blue-zodiac-400"
+          className="outline-none rounded dark:bg-bright-turquoise-500 bg-blue-zodiac-500 w-11/12 px-2 py-1 text-sm dark:text-blue-zodiac-400 text-bright-turquoise-400 dark:placeholder-blue-zodiac-400 placeholder-bright-turquoise-400 transition-colors"
           placeholder="Task body"
           required
         />
-        <button className="bg-bright-turquoise-500 text-blue-zodiac-400 px-7 py-1 rounded">
+        <button className="dark:bg-bright-turquoise-500 bg-blue-zodiac-500 dark:text-blue-zodiac-400 text-bright-turquoise-400 px-7 py-1 rounded transition-colors">
           Add
         </button>
       </form>
