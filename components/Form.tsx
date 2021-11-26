@@ -57,7 +57,7 @@ export const Form = () => {
           placeholder="Task body"
           required
         />
-        <button className="dark:bg-bright-turquoise-500 bg-blue-zodiac-500 dark:text-blue-zodiac-400 text-bright-turquoise-400 px-7 py-1 rounded transition-colors">
+        <button className="dark:bg-bright-turquoise-500 bg-blue-zodiac-500 dark:text-blue-zodiac-400 text-bright-turquoise-400 px-7 py-1 rounded active:ring-4 active:ring-bright-turquoise-700 transition-all">
           Add
         </button>
       </form>

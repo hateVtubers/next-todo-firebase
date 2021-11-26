@@ -25,11 +25,11 @@ const Home: NextPage = () => {
       <header className="absolute top-5 right-5">
         <Card user={userData} />
       </header>
-      <div className="container flex items-center justify-center gap-5">
+      <div className="container flex items-center justify-center gap-5 flex-col lg:flex-row">
         <aside className="dark:bg-blue-zodiac-400 bg-bright-turquoise-400 p-3 w-64 rounded-sm transition-colors">
           <Form />
         </aside>
-        <main className="dark:bg-blue-zodiac-500 bg-bright-turquoise-500 w-96 rounded p-3 transition-colors">
+        <main className="dark:bg-blue-zodiac-500 bg-bright-turquoise-500 lg:w-96 w-11/12 rounded p-3 transition-colors">
           <h1 className="dark:text-bright-turquoise-500 text-blue-zodiac-500 text-xl text-center transition-colors">
             Tasks
           </h1>
