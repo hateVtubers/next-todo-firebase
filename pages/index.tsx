@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import type { ContextTask } from "../interfaces/ContextTask";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLogin } from "../auth/useLogin";
 import { Form } from "../components/Form";
 import { Card } from "../components/Card";
@@ -11,9 +11,8 @@ import { SwitchTheme } from "../components/SwitchTheme";
 
 const Home: NextPage = () => {
   const { redirect, getUserData, userData } = useLogin();
-  const {
-    state: { tasks },
-  } = useContext(TaskContext) as ContextTask;
+  const [editting, setEditting] = useState("");
+  const { state: { tasks } } = useContext(TaskContext) as ContextTask;
   useEffect(() => {
     redirect();
     getUserData();
@@ -27,7 +26,7 @@ const Home: NextPage = () => {
       </header>
       <div className="container flex items-center justify-center gap-5 flex-col lg:flex-row">
         <aside className="dark:bg-blue-zodiac-400 bg-bright-turquoise-400 p-3 w-64 rounded-sm transition-colors">
-          <Form />
+          <Form edit={editting} setEditting={setEditting} />
         </aside>
         <main className="dark:bg-blue-zodiac-500 bg-bright-turquoise-500 lg:w-96 w-11/12 rounded p-3 transition-colors">
           <h1 className="dark:text-bright-turquoise-500 text-blue-zodiac-500 text-xl text-center transition-colors">
@@ -35,7 +34,13 @@ const Home: NextPage = () => {
           </h1>
           <div className="overflow-hidden grid gap-1.5">
             {tasks.length ? (
-              tasks.map((task) => <TaskItems taskText={task} taskId={task} key={task.id} />)
+              tasks.map((task) => (
+                <TaskItems
+                  taskText={task}
+                  setEditting={setEditting}
+                  key={task.id}
+                />
+              ))
             ) : (
               <Loading />
             )}

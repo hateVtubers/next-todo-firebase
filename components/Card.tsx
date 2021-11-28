@@ -12,7 +12,8 @@ export const Card = ({ user }: { user: UserData } | { user: null }) => {
           width={68}
           height={64}
           priority={true}
-          className="rounded-l"
+          decoding="sync"
+          className="rounded-l dark:bg-bright-turquoise-500 bg-blue-zodiac-500"
         />
       ) : (
         <div className="h-16 dark:bg-bright-turquoise-500 bg-blue-zodiac-500 transition-colors" style={{ width: "68px" }}></div>
@@ -26,7 +27,7 @@ export const Card = ({ user }: { user: UserData } | { user: null }) => {
         ) : (
           <>
             <div className="h-3 w-16 dark:bg-bright-turquoise-500 bg-blue-zodiac-500 rounded-full transition-colors"></div>
-            <div className="h-3 w-36 dark:bg-bright-turquoise-500 bg-blue-zodiac-500 rounded-full transition-colors"></div>
+            <div className="h-3 w-28 dark:bg-bright-turquoise-500 bg-blue-zodiac-500 rounded-full transition-colors"></div>
           </>
         )}
       </div>

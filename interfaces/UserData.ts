@@ -4,7 +4,7 @@ export interface User {
   phoneNumber?: null,
   photoURL?: string | null,
   providerId?: string | null,
-  uid?: string | null,
+  id?: string | null,
 }
 
 export interface UserData {

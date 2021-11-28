@@ -8,6 +8,8 @@ export const TaskContext = createContext();
 export const TaskContextProvider = ({ children }: { children: ReactNode }) => {
   const databaseHook: ContextTask = useDatabase();
   return (
-    <TaskContext.Provider value={databaseHook}>{children}</TaskContext.Provider>
+    <TaskContext.Provider value={{ ...databaseHook }}>
+      {children}
+    </TaskContext.Provider>
   );
 };

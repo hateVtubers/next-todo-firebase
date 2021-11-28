@@ -8,12 +8,23 @@ const reducer = (state: TaskState, { type, payload }: Action) => {
         tasks: [...state.tasks, payload],
       };
     case "REMOVE_TASK_ID":
-      // @ts-ignore
-      const index = state.tasks.indexOf(payload)
-      const newTasks = state.tasks.filter((task, i) => i !== index);
       return {
         ...state,
-        tasks: newTasks,
+        tasks: state.tasks.filter((task) => task !== payload),
+      };
+    case "UPDATE_TASK":
+      return {
+        ...state,
+        tasks: state.tasks.map((task) =>
+          payload.id === task.id
+            ? {
+                ...task,
+                title: payload.title,
+                body: payload.body,
+                date: payload.date,
+              }
+            : { ...task }
+        ),
       };
     default:
       break;

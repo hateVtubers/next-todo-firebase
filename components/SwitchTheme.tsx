@@ -8,11 +8,8 @@ export const SwitchTheme = () => {
     setThemes(!themes);
   };
   return (
-    <div className="absolute top-5 left-5 w-14 h-14">
-      <button className="relative w-full h-full grid items-center" onClick={handleThemes}>
-        <Moon state={themes} />
-        <Sun state={themes} />
-      </button>
-    </div>
+    <button className="absolute top-5 left-5" onClick={handleThemes}>
+      {themes ? <Moon /> : <Sun />}
+    </button>
   );
 };

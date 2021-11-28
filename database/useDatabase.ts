@@ -1,11 +1,11 @@
-import { set, ref, get, child, remove } from "@firebase/database";
+import { set, ref, get, child, remove, update } from "@firebase/database";
 import { useEffect, useReducer } from "react";
 import { db } from "../firebase.config";
 import reducer from "./reducer";
 import type { Task } from "../interfaces/Task";
 import type { TaskState, StateDispatch } from "../interfaces/taskState";
 import type { TaskInDatabase } from "../interfaces/Task";
-import type { ContextTask } from "../interfaces/ContextTask";
+import type { ContextTask, Action } from "../interfaces/ContextTask";
 
 export const dbRef = ref(db);
 
@@ -36,9 +36,18 @@ export const useDatabase = (): ContextTask => {
     dispatch({ type: "ADD_TASK_ID", payload: task });
   };
   const removeTask = (id: Task) => {
-    remove(child(dbRef, `tasks/${id.id}`));
     dispatch({ type: "REMOVE_TASK_ID", payload: id });
+    remove(child(dbRef, `tasks/${id.id}`));
   };
+
+  const updateTask = (newTask: Action) => {
+    dispatch({ type: "UPDATE_TASK", payload: newTask });
+    update(child(dbRef, `tasks/${newTask.id}`), {
+      title: newTask.title,
+      body: newTask.body,
+      date: newTask.date,
+    })
+  }
 
   useEffect(() => {
     getUserTask();
@@ -49,6 +58,7 @@ export const useDatabase = (): ContextTask => {
     writeUserTask,
     readUserTask,
     removeTask,
+    updateTask,
     state,
   };
 };

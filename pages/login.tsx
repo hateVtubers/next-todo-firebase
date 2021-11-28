@@ -21,8 +21,8 @@ const Login: NextPage = () => {
     [githubLogo, githubProvider],
   ];
   return (
-    <div className="dark:bg-blue-zodiac-600 bg-bright-turquoise-600 min-h-screen grid place-items-center transition-colors">
-      <main className="dark:bg-bright-turquoise-500 bg-blue-zodiac-500 p-3 dark:text-blue-zodiac-500 text-bright-turquoise-500 rounded w-60 transition-colors">
+    <div className="bg-bright-turquoise-600 min-h-screen grid place-items-center transition-colors">
+      <main className="bg-blue-zodiac-300 p-3 text-bright-turquoise-500 rounded w-60 transition-colors">
         <h1 className="text-xl">Login with:</h1>
         <picture className="flex items-center justify-evenly mt-3">
           {logos.map(([logo, provider], index: number) => (

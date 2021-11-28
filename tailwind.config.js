@@ -38,8 +38,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      backgroundColor: ['responsive', 'hover', 'focus', 'active'],
-      textColor: ['responsive', 'hover', 'focus', 'active'],
+      ringWidth: ['hover', 'active'],
+      ringColor: ['hover', 'active'],
     },
   },
   plugins: [],
