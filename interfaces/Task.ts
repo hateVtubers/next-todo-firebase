@@ -3,7 +3,6 @@ export interface Task {
   body: string | null,
   id: string | null,
   date: string | null,
-  complete: boolean | null
 }
 
 export interface TaskInDatabase {
@@ -11,5 +10,4 @@ export interface TaskInDatabase {
   title: string,
   id: string,
   date: string,
-  complete: boolean
 }

@@ -10,4 +10,3 @@ export type Action = {
 }
 
 export type StateDispatch = [TaskState, (action: Action) => void];
-

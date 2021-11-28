@@ -42,7 +42,6 @@ export const Form = ({ edit, setEditting }: Edit) => {
         body: b.value,
         id: uniqid(`${t.value}-`),
         date: `${date.toLocaleDateString()}`,
-        complete: false,
       }
       writeUserTask(newTask);
       notificationAdd("#2FF9CC", "Successfully added task!");

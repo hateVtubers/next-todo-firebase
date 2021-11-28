@@ -1,7 +1,6 @@
 import type { UserData } from "../interfaces/UserData";
 import Image from "next/image";
 
-// @ts-ignore
 export const Card = ({ user }: { user: UserData } | { user: null }) => {
   return (
     <div className="flex gap-2 pr-3 dark:bg-blue-zodiac-500 bg-bright-turquoise-500 dark:text-bright-turquoise-500 text-blue-zodiac-500 rounded w-56 transition-colors">
@@ -12,7 +11,7 @@ export const Card = ({ user }: { user: UserData } | { user: null }) => {
           width={68}
           height={64}
           priority={true}
-          decoding="sync"
+          decoding="async"
           className="rounded-l dark:bg-bright-turquoise-500 bg-blue-zodiac-500"
         />
       ) : (

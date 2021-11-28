@@ -30,17 +30,11 @@ module.exports = {
           '800': '#000000',
           '900': '#000000'
         },
-      },
-      width: {
-        '17': '68px',
       }
     },
   },
   variants: {
-    extend: {
-      ringWidth: ['hover', 'active'],
-      ringColor: ['hover', 'active'],
-    },
+    extend: {},
   },
   plugins: [],
 }
